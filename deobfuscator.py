@@ -2,18 +2,26 @@ from idc import *
 from idautils import *
 import utils
 
-# Define deobfuscators
-from reg_push import RegPush
-from func_call import FnCall
-deobfuscator_list = (RegPush(), FnCall())
+class Deobfuscator(object):
+    def __init__(self):
+        self.name = '<unset name>'
+        self.type = '<unset type>'
+        self.comment = '<unset comment>'
+        self.count = 0
 
-# Main deobfuscation function
-def deobfuscate():
-        for fn_address in utils.functions():
-                for fn_deobfuscator in deobfuscator_list:
-                        if fn_deobfuscator.can_deobfuscate(fn_address):
-                                print "Deobfuscating a %s at 0x%x" % (fn_deobfuscator.type, fn_address)
-                                fn_deobfuscator.deobfuscate(fn_address)
-                                print "Done"
-                                break
-        print "Deobfuscation complete. You are advised to run at least 2 rounds of deobfuscation to deobfuscate the newfound functions."
+    def can_deobfuscate(self, function_address):
+        raise Exception('[!] Unimplemented can_deobfuscate for', self.name)
+
+    def label_function(self, function_address):
+        # Set repeatable function comment
+        SetFunctionCmt(function_address, self.comment, 1)
+
+        # Rename function
+        self.count = utils.set_name(function_address, self.name, self.count)
+
+    def label_callees(self, function_address):
+        for callee_address in CodeRefsTo(function_address, 1):
+            self.label_callee(function_address, callee_address)
+
+    def label_callee(self, function_address, callee_address):
+        raise Exception('[!] Unimplemented label_callee for', self.name)

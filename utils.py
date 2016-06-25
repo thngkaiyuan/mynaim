@@ -14,5 +14,12 @@ class functions():
             return self.addr
         raise StopIteration()
 
+def set_name(address, original_name, counter):
+    name = "%s_%d" % (original_name, counter)
+    while not MakeNameEx(address, name, SN_NOCHECK):
+        counter += 1
+        name = "%s_%d" % (original_name, counter)
+    return counter + 1
+
 def get_instr_bytes(address):
         return GetManyBytes(address, ItemSize(address)).encode("hex")
