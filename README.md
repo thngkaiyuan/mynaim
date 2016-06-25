@@ -7,7 +7,7 @@ Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection
 1. Configure the path to PyEmu in `config.py`
 2. Position the cursor anywhere within the text segment of the sample
 3. Load `main.py` in IDAPro
-4. In the IDAPython interpreter, execute `init()`, then `deobfuscate()`
+4. In the IDAPython interpreter, execute `init()`, then `deobfuscate()` for as many times as you like :)
 
 # Dependencies
 
