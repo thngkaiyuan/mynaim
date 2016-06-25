@@ -12,7 +12,7 @@ def deobfuscate():
         for fn_address in utils.functions():
                 for fn_deobfuscator in deobfuscator_list:
                         if fn_deobfuscator.can_deobfuscate(fn_address):
-                                print "Deobfuscating a %s at %x" % (fn_deobfuscator.type, fn_address)
+                                print "Deobfuscating a %s at 0x%x" % (fn_deobfuscator.type, fn_address)
                                 fn_deobfuscator.deobfuscate(fn_address)
                                 print "Done"
                                 break
