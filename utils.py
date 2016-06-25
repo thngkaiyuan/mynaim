@@ -15,6 +15,8 @@ class functions():
         raise StopIteration()
 
 def set_name(address, original_name, counter):
+    if original_name in GetFunctionName(address):
+        return counter
     name = "%s_%d" % (original_name, counter)
     while not MakeNameEx(address, name, SN_NOCHECK):
         counter += 1
