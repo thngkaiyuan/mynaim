@@ -19,9 +19,9 @@ class Deobfuscator(object):
         # Rename function
         self.count = utils.set_name(function_address, self.name, self.count)
 
-    def label_callees(self, function_address):
-        for callee_address in CodeRefsTo(function_address, 1):
-            self.label_callee(function_address, callee_address)
+    def label_callers(self, function_address):
+        for caller_address in CodeRefsTo(function_address, 1):
+            self.label_caller(function_address, caller_address)
 
-    def label_callee(self, function_address, callee_address):
-        raise Exception('[!] Unimplemented label_callee for', self.name)
+    def label_caller(self, function_address, caller_address):
+        raise Exception('[!] Unimplemented label_caller for', self.name)
