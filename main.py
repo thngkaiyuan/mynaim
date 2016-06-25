@@ -22,8 +22,5 @@ def deobfuscate():
                             fn_deobfuscator.label_callers(fn_address)
                             print "Done"
                             break
-    newly_deobfuscated_count = sum(map(lambda deobfuscator: deobfuscator.count, deobfuscator_list))
-    if newly_deobfuscated_count == 0:
-        print "No new deobfuscations for now :)"
-    else:
-        print "Deobfuscated %d functions. You might want to run another round of deobfuscation." % (newly_deobfuscated_count)
+    deobfuscated_count = sum(map(lambda deobfuscator: deobfuscator.count, deobfuscator_list))
+    print "Deobfuscated a total of %d functions. You might want to run another round of deobfuscation." % (deobfuscated_count)
