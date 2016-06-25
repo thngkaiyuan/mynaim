@@ -16,5 +16,4 @@ Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection
 
 # Todo
 
-- Deobfuscate mov function calls
 - Deobfuscate library calls
