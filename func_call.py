@@ -74,7 +74,7 @@ class FnCall(Deobfuscator):
             i -= 1
         final_addr = self.get_final_addr(start_address, function_address)
 
-        MakeComm(caller_address, "call %s" % (Name(final_addr) if Name(final_addr) else '0x' + hex(final_addr)))
+        MakeComm(caller_address, "call %s" % (Name(final_addr) if Name(final_addr) else hex(final_addr)[:-1:]))
         MakeCode(final_addr)
         idaapi.add_cref(caller_address, final_addr, idaapi.fl_CN)
 
