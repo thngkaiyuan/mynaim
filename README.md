@@ -6,7 +6,7 @@ Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection
 
 1. Deobfuscates functions used to do a simple register push
 
-  ![image](https://cloud.githubusercontent.com/assets/10496851/16363549/96b39fb0-3c00-11e6-96bf-493d76aaa790.png)
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363634/509514fc-3c03-11e6-9d2e-496a03e4e4dc.png)
   
   to
   
