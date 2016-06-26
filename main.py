@@ -24,3 +24,16 @@ def deobfuscate():
                             break
     deobfuscated_count = sum(map(lambda deobfuscator: deobfuscator.count, deobfuscator_list))
     print "Deobfuscated a total of %d functions. You might want to run another round of deobfuscation." % (deobfuscated_count)
+
+def hash_and_xor(string, xor_key=0xe4289257):
+    hsh = 0
+    for c in string:
+        x = 0
+        if ord(c) < 0x5b:
+            x += 1
+        if ord(c) < 0x41:
+            x -= 1
+        x = x << 5
+        hsh = utils.rol(hsh, 7)
+        hsh = hsh ^ (ord(c) + x)
+    return hex(hsh ^ xor_key)

@@ -43,3 +43,7 @@ def set_name(address, original_name, counter):
 
 def get_instr_bytes(address):
         return GetManyBytes(address, ItemSize(address)).encode("hex")
+
+def rol(dword, n):
+    n = n % 32
+    return (dword << n | dword >> (32-n)) & 0xffffffff
