@@ -29,6 +29,8 @@ Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection
 3. Load `main.py` in IDAPro
 4. In the IDAPython interpreter, execute `init()`, then `deobfuscate()` for as many times as you like :)
 
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363652/10167bfe-3c04-11e6-80ee-5347e0152685.png)
+
 Pro tip: You can actually re-run `deobfuscate()` after renaming your functions in order to update their names in the comments
 
 # Dependencies
