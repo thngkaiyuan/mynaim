@@ -23,7 +23,6 @@ class FnCall(Deobfuscator):
             self.emu = IDAPyEmu()
             self.emu.steps_taken = 0
             self.emu.found_addr = None
-            self.emu.memory_fault = config.IS_DEBUGGING
             self.emu.original_esp = self.emu.get_register("ESP")
             self.emu.original_ebp = self.emu.get_register("EBP")
             textstart = config.TEXT_START
@@ -108,7 +107,11 @@ class FnCall(Deobfuscator):
         self.emu.steps_taken < config.MAX_STEPS and
         config.TEXT_START <= self.emu.get_register("EIP") <= config.TEXT_END):
             try:
-                self.emu.execute()
+                if config.IS_DEBUGGING:
+                    self.emu.execute()
+                else:
+                    with utils.SilenceStdStreams():
+                        self.emu.execute()
                 self.emu.steps_taken += 1
             except:
                 break
