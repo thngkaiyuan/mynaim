@@ -5,8 +5,22 @@ Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection
 # Feature List
 
 1. Deobfuscates functions used to do a simple register push
+
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363549/96b39fb0-3c00-11e6-96bf-493d76aaa790.png)
+  
+  to
+  
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363583/6e697d3a-3c01-11e6-900a-8f163df74030.png)
 2. Deobfuscates proxy function calls
+
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363560/e14b95fa-3c00-11e6-9cea-92303cf1842e.png)
+  
+  to
+  
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363597/c85caea2-3c01-11e6-920d-f2091f1d15ad.png)
 3. Provides a function to emulate the hashing and xor-ing of strings in Nymaim
+
+  ![image](https://cloud.githubusercontent.com/assets/10496851/16363611/2bd50ae2-3c02-11e6-9601-34ddd8011462.png)
 
 # Usage
 
