@@ -81,6 +81,10 @@ class FnCall(Deobfuscator):
         for push_address in push_addresses:
             MakeComm(push_address, comment)
 
+        push_address = PrevHead(push_address)
+        if GetMnem(push_address) == 'push':
+            MakeComm(push_address, comment)
+
     def retn_handler(self, emu, opcode, eip, op1, op2, op3):
         emu.should_stop_execution = True
         emu.found_addr = eip
