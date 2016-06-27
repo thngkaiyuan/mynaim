@@ -32,8 +32,9 @@ class RegPush(Deobfuscator):
         register = self.op_map[operand]
         comment1 = "(irrelevant) argument for register push"
         MakeComm(push_address, comment1)
-        comment2 = "push %s" % (register)
-        MakeComm(caller_address, comment2)
+        if not GetCommentEx(caller_address, 0):
+            comment2 = "push %s" % (register)
+            MakeComm(caller_address, comment2)
 
     def get_operand(self, address):
         return GetOpnd(address, 0)
