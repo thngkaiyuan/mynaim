@@ -38,7 +38,7 @@ class FnCall(Deobfuscator):
     def can_deobfuscate(self, function_address):
         try:
             # Check just one CodeRef
-            caller_address = CodeRefsTo(function_address, 0).next()
+            caller_address = CodeRefsTo(function_address, 1).next()
 
             # There should be at least one constant push before the call
             prev_address = PrevHead(caller_address)
@@ -72,6 +72,8 @@ class FnCall(Deobfuscator):
             push_addresses.append(start_address)
             i -= 1
         final_addr = self.get_final_addr(start_address, function_address)
+        if not final_addr:
+            print "[!] Unable to deobfuscate function call at 0x%x" % (caller_address)
 
         MakeComm(caller_address, "call %s" % (Name(final_addr) if Name(final_addr) else hex(final_addr)[:-1:]))
         MakeCode(final_addr)
