@@ -10,6 +10,7 @@ from func_call import FnCall
 deobfuscator_list = ()
 def init(emu=None):
     global deobfuscator_list
+    config.TEXT_START, config.TEXT_END = utils.get_seg_start_and_end()
     deobfuscator_list = (RegPush(), FnCall(emu))
 
 # Main deobfuscation function

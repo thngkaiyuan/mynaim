@@ -32,6 +32,11 @@ class functions():
             return self.addr
         raise StopIteration()
 
+def get_seg_start_and_end():
+    start = SegStart(ScreenEA())
+    end = SegEnd(start)
+    return start, end
+
 def set_name(address, original_name, counter):
     if original_name in GetFunctionName(address):
         return counter
