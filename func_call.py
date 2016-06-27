@@ -38,7 +38,7 @@ class FnCall(Deobfuscator):
     def can_deobfuscate(self, function_address):
         try:
             # Check just one CodeRef
-            caller_address = CodeRefsTo(function_address, 1).next()
+            caller_address = CodeRefsTo(function_address, 0).next()
 
             # There should be at least one constant push before the call
             prev_address = PrevHead(caller_address)

@@ -20,7 +20,7 @@ class Deobfuscator(object):
         self.count = utils.set_name(function_address, self.name, self.count)
 
     def label_callers(self, function_address):
-        for caller_address in CodeRefsTo(function_address, 1):
+        for caller_address in CodeRefsTo(function_address, 0):
             self.label_caller(function_address, caller_address)
 
     def label_caller(self, function_address, caller_address):
