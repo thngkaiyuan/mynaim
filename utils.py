@@ -21,7 +21,7 @@ class SilenceStdStreams(object):
 
 class functions():
     def __init__(self):
-        self.addr = config.TEXT_START - 1
+        self.addr = config.TEXT_START
 
     def __iter__(self):
         return self
