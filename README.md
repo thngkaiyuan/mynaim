@@ -20,7 +20,7 @@ Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection
   ![image](https://cloud.githubusercontent.com/assets/10496851/16363597/c85caea2-3c01-11e6-920d-f2091f1d15ad.png)
 3. Provides a function to emulate the hashing and xor-ing of strings in Nymaim
 
-  ![screen shot 2016-07-12 at 2 02 56 pm](https://cloud.githubusercontent.com/assets/10496851/16756696/7996ad60-4839-11e6-9b94-111a776c0579.png)
+  ![7996ad60-4839-11e6-9b94-111a776c0579](https://cloud.githubusercontent.com/assets/10496851/16775676/651e18a4-4894-11e6-994e-526e7ffd1583.png)
 
 # Usage
 
