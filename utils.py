@@ -52,3 +52,7 @@ def get_instr_bytes(address):
 def rol(dword, n):
     n = n % 32
     return (dword << n | dword >> (32-n)) & 0xffffffff
+
+def ror(dword, n):
+    n = n % 32
+    return (dword >> n | dword << (32-n)) & 0xffffffff

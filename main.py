@@ -45,3 +45,43 @@ def hash_and_xor_func_name(name, xor_key=0xe4289257):
         hsh = utils.rol(hsh, 7)
         hsh ^= ord(c)
     return hex(hsh ^ xor_key)
+
+def get_api_name_from_magic_value(magic_value, img_base=None):
+    if not img_base:
+        img_base = SegStart(ScreenEA())
+    ea = get_api_address_from_magic_value(magic_value, img_base)
+    print GetTrueName(ea)
+
+def get_api_address_from_magic_value(magic_value, img_base=None):
+    if not img_base:
+        img_base = SegStart(ScreenEA())
+    decrypted = decrypt_at_pos(4, magic_value + 4, img_base)
+    offset = 0
+    for i, b in enumerate(decrypted):
+        offset += b << (i*8)
+    ea = offset + img_base
+    return DbgDword(ea) ^ 0xF1C9407D
+
+def decrypt_at_pos(size, offset_from_img_base, img_base=None):
+    if not img_base:
+        img_base = SegStart(ScreenEA())
+    decrypted = bytearray()
+    special_val_1 = 0xD2EDE5B0
+    special_val_2 = 0xA175B260
+    ea = img_base + offset_from_img_base
+    lower_bound = img_base + 0x85000
+    byte_offset = ea - lower_bound
+    if byte_offset < 0:
+        print "Negative offset detected."
+        return
+    dword_offset = byte_offset >> 2
+    key = (special_val_1 + (dword_offset * special_val_2)) & 0xffffffff
+    for i in range(size):
+        rotate_amt = ((byte_offset & 0x3) << 3) & 0xff
+        byte_key = utils.ror(key, rotate_amt) & 0xff
+        byte_offset += 1
+        if (byte_offset & 0x3) == 0:
+            key += special_val_2
+        dec_byte = DbgByte(ea + i) ^ byte_key
+        decrypted.append(dec_byte)
+    return decrypted
