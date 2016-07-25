@@ -1,6 +1,6 @@
-# Myamyn
+# MyNaim
 
-Myamyn, the obfuscated form of the malware family name 'Nymaim', is a collection of IDAPython deobfuscation scripts useful for anyone doing analysis of a Nymaim sample. This is especially so since their obfuscation techniques have more or less been the same throughout the years, so sharing my scripts might save the time of other analysts :)
+MyNaim, an anagram of the malware family name 'Nymaim', is a collection of IDAPython deobfuscation scripts useful for anyone doing analysis of a Nymaim sample. This is especially so since their obfuscation techniques have more or less been the same throughout the years, so sharing my scripts might save the time of other analysts :)
 
 # Feature List
 
