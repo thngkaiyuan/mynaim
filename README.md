@@ -21,6 +21,9 @@ MyNaim, an anagram of the malware family name 'Nymaim', is a collection of IDAPy
 3. Provides a function to emulate the hashing and xor-ing of strings in Nymaim
 
   ![7996ad60-4839-11e6-9b94-111a776c0579](https://cloud.githubusercontent.com/assets/10496851/16775676/651e18a4-4894-11e6-994e-526e7ffd1583.png)
+4. Provides a function to turn obfuscated offsets to their respective API addresses/namees
+
+  ![screen shot 2016-07-26 at 5 51 32 pm](https://cloud.githubusercontent.com/assets/10496851/17133786/2bbcfa8c-535a-11e6-970d-5fe3bfdd7a07.png)
 
 # Usage
 
